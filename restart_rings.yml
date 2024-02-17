@@ -5,18 +5,16 @@
   tasks:
     - name: Restart Docker Compose in ring directory
       command: 
-        cmd: |
-          cd {{ item.path }}
-          docker-compose restart
-          cd ..
+        cmd: docker-compose restart
+        chdir: "{{ item.path }}"
       with_items:
-        - { path: "ring" }
-        - { path: "ring1" }
-        - { path: "ring2" }
-        - { path: "ring3" }
-        - { path: "ring4" }
-        - { path: "ring5" }
-        - { path: "ring6" }
-        - { path: "ring7" }
-        - { path: "ring8" }
-        - { path: "ring9" }
+        - { path: "~/ring" }
+        - { path: "~/ring1" }
+        - { path: "~/ring2" }
+        - { path: "~/ring3" }
+        - { path: "~/ring4" }
+        - { path: "~/ring5" }
+        - { path: "~/ring6" }
+        - { path: "~/ring7" }
+        - { path: "~/ring8" }
+        - { path: "~/ring9" }
