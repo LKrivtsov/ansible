@@ -1,0 +1,13 @@
+---
+- name: Check Free Disk Space
+  hosts: your_target_host
+  gather_facts: yes
+
+  tasks:
+    - name: Get Free Disk Space
+      command: df -h
+      register: disk_space_output
+
+    - name: Display Free Disk Space
+      debug:
+        var: disk_space_output.stdout_lines
