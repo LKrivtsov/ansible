@@ -1,13 +1,22 @@
 ---
-- name: Check Free Disk Space
+- name: Restart Docker Compose on Rings
   hosts: rings
-  gather_facts: yes
-
+  become: true
   tasks:
-    - name: Get Free Disk Space
-      command: df -h
-      register: disk_space_output
-
-    - name: Display Free Disk Space
-      debug:
-        var: disk_space_output.stdout_lines
+    - name: Restart Docker Compose in ring directory
+      command: 
+        cmd: |
+          cd {{ item.path }}
+          docker-compose restart
+          cd ..
+      with_items:
+        - { path: "ring" }
+        - { path: "ring1" }
+        - { path: "ring2" }
+        - { path: "ring3" }
+        - { path: "ring4" }
+        - { path: "ring5" }
+        - { path: "ring6" }
+        - { path: "ring7" }
+        - { path: "ring8" }
+        - { path: "ring9" }
