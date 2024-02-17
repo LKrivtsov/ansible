@@ -1,6 +1,6 @@
 ---
 - name: Check Free Disk Space
-  hosts: your_target_host
+  hosts: rings
   gather_facts: yes
 
   tasks:
