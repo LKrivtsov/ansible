@@ -1,0 +1,20 @@
+---
+- name: Up Docker Compose on Rings
+  hosts: rings
+  become: true
+  tasks:
+    - name: Docker Compose up rings
+      command: 
+        cmd: /usr/bin/docker compose up -d
+        chdir: "{{ item.path }}"
+      with_items:
+        - { path: "~/ring" }
+        - { path: "~/ring1" }
+        - { path: "~/ring2" }
+        - { path: "~/ring3" }
+        - { path: "~/ring4" }
+        - { path: "~/ring5" }
+        - { path: "~/ring6" }
+        - { path: "~/ring7" }
+        - { path: "~/ring8" }
+        - { path: "~/ring9" }
